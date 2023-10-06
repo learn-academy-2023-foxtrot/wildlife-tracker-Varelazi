@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_230950) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_06_183551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sightings", force: :cascade do |t|
+    t.integer "latitude"
+    t.integer "longitude"
+    t.string "date"
+    t.integer "wildlife_tracker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "wildlife_trackers", force: :cascade do |t|
     t.string "common_name"
